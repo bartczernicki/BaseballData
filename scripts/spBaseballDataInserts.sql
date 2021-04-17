@@ -163,23 +163,15 @@ UNION ALL
 select 'markani01', 'Gold Glove', 2018, 'NL', NULL, NULL
 UNION ALL
 -- Gold Glove - AL & NL - 2019
-select 'keuchda01', 'Gold Glove', 2019, 'AL', NULL, NULL
-UNION ALL
-select 'greinza01', 'Gold Glove', 2019, 'NL', NULL, NULL
-UNION ALL
-select 'perezsa02', 'Gold Glove', 2019, 'AL', NULL, NULL
-UNION ALL
-select 'molinya01', 'Gold Glove', 2019, 'NL', NULL, NULL
-UNION ALL
 select 'olsonma02', 'Gold Glove', 2019, 'AL', NULL, NULL
 UNION ALL
-select 'freemfr01', 'Gold Glove', 2019, 'NL', NULL, NULL
+select 'rizzoan01', 'Gold Glove', 2019, 'NL', NULL, NULL
 UNION ALL
-select 'kinslia01', 'Gold Glove', 2019, 'AL', NULL, NULL
+select 'sanchca01', 'Gold Glove', 2019, 'AL', NULL, NULL
 UNION ALL
-select 'lemahdj01', 'Gold Glove', 2019, 'NL', NULL, NULL
+select 'wongko01', 'Gold Glove', 2019, 'NL', NULL, NULL
 UNION ALL
-select 'simmoan01', 'Gold Glove', 2019, 'AL', NULL, NULL
+select 'lindofr01', 'Gold Glove', 2019, 'AL', NULL, NULL
 UNION ALL
 select 'ahmedni01', 'Gold Glove', 2019, 'NL', NULL, NULL
 UNION ALL
@@ -189,15 +181,60 @@ select 'arenano01', 'Gold Glove', 2019, 'NL', NULL, NULL
 UNION ALL
 select 'gordoal01', 'Gold Glove', 2019, 'AL', NULL, NULL
 UNION ALL
-select 'dickeco01', 'Gold Glove', 2019, 'NL', NULL, NULL
+select 'peralda01', 'Gold Glove', 2019, 'NL', NULL, NULL
 UNION ALL
-select 'bradlja02', 'Gold Glove', 2019, 'AL', NULL, NULL
+select 'kiermke01', 'Gold Glove', 2019, 'AL', NULL, NULL
 UNION ALL
-select 'inciaen01', 'Gold Glove', 2019, 'NL', NULL, NULL
+select 'cainlo01', 'Gold Glove', 2019, 'NL', NULL, NULL
 UNION ALL
 select 'bettsmo01', 'Gold Glove', 2019, 'AL', NULL, NULL
 UNION ALL
-select 'markani01', 'Gold Glove', 2019, 'NL', NULL, NULL
+select 'bellico01', 'Gold Glove', 2019, 'NL', NULL, NULL
+UNION ALL
+select 'perezro02', 'Gold Glove', 2019, 'AL', NULL, NULL
+UNION ALL
+select 'realmjt01', 'Gold Glove', 2019, 'NL', NULL, NULL
+UNION ALL
+select 'leakemi01', 'Gold Glove', 2019, 'AL', NULL, NULL
+UNION ALL
+select 'greinza01', 'Gold Glove', 2019, 'NL', NULL, NULL
+UNION ALL
+-- Gold Glove - AL & NL - 2020
+select 'whiteev01', 'Gold Glove', 2020, 'AL', NULL, NULL
+UNION ALL
+select 'rizzoan01', 'Gold Glove', 2020, 'NL', NULL, NULL
+UNION ALL
+select 'hernace02', 'Gold Glove', 2020, 'AL', NULL, NULL
+UNION ALL
+select 'wongko01', 'Gold Glove', 2020, 'NL', NULL, NULL
+UNION ALL
+select 'crawfjp01', 'Gold Glove', 2020, 'AL', NULL, NULL
+UNION ALL
+select 'baezja01', 'Gold Glove', 2020, 'NL', NULL, NULL
+UNION ALL
+select 'kineris01', 'Gold Glove', 2020, 'AL', NULL, NULL
+UNION ALL
+select 'arenano01', 'Gold Glove', 2020, 'NL', NULL, NULL
+UNION ALL
+select 'gordoal01', 'Gold Glove', 2020, 'AL', NULL, NULL
+UNION ALL
+select 'oneilty01', 'Gold Glove', 2020, 'NL', NULL, NULL
+UNION ALL
+select 'roberlu01', 'Gold Glove', 2020, 'AL', NULL, NULL
+UNION ALL
+select 'grishtr01', 'Gold Glove', 2020, 'NL', NULL, NULL
+UNION ALL
+select 'gallojo01', 'Gold Glove', 2020, 'AL', NULL, NULL
+UNION ALL
+select 'bellico01', 'Gold Glove', 2020, 'NL', NULL, NULL
+UNION ALL
+select 'perezro02', 'Gold Glove', 2020, 'AL', NULL, NULL
+UNION ALL
+select 'barnhtu01', 'Gold Glove', 2020, 'NL', NULL, NULL
+UNION ALL
+select 'cannigr01', 'Gold Glove', 2020, 'AL', NULL, NULL
+UNION ALL
+select 'friedma01', 'Gold Glove', 2020, 'NL', NULL, NULL
 
 /* Verify
 select * from dbo.HallOfFame where yearID >= 2019 order by yearID;
