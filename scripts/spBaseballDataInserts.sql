@@ -294,111 +294,112 @@ select 'abreujo02', 'Silver Slugger', 2018, 'AL', NULL, '1B'
 UNION ALL
 select 'goldspa01', 'Silver Slugger', 2018, 'NL', NULL, '1B'
 UNION ALL
-select 'perezsa02', 'Silver Slugger', 2018, 'AL', NULL, '2B'
+select 'altuvjo01', 'Silver Slugger', 2018, 'AL', NULL, '2B'
 UNION ALL
-select 'molinya01', 'Silver Slugger', 2018, 'NL', NULL, '2B'
+select 'baezja01', 'Silver Slugger', 2018, 'NL', NULL, '2B'
 UNION ALL
-select 'olsonma02', 'Silver Slugger', 2018, 'AL', NULL, '3B'
+select 'ramirjo01', 'Silver Slugger', 2018, 'AL', NULL, '3B'
 UNION ALL
-select 'freemfr01', 'Silver Slugger', 2018, 'NL', NULL, '3B'
+select 'arenano01', 'Silver Slugger', 2018, 'NL', NULL, '3B'
 UNION ALL
-select 'kinslia01', 'Silver Slugger', 2018, 'AL', NULL, 'SS'
+select 'lindofr01', 'Silver Slugger', 2018, 'AL', NULL, 'SS'
 UNION ALL
-select 'lemahdj01', 'Silver Slugger', 2018, 'NL', NULL, 'SS'
+select 'storytr01', 'Silver Slugger', 2018, 'NL', NULL, 'SS'
 UNION ALL
-select 'simmoan01', 'Silver Slugger', 2018, 'AL', NULL, 'OF'
+select 'bettsmo01', 'Silver Slugger', 2018, 'AL', NULL, 'OF'
 UNION ALL
-select 'ahmedni01', 'Silver Slugger', 2018, 'NL', NULL, 'OF'
+select 'markani01', 'Silver Slugger', 2018, 'NL', NULL, 'OF'
 UNION ALL
-select 'chapmma01', 'Silver Slugger', 2018, 'AL', NULL, 'OF'
+select 'troutmi01', 'Silver Slugger', 2018, 'AL', NULL, 'OF'
 UNION ALL
-select 'arenano01', 'Silver Slugger', 2018, 'NL', NULL, 'OF'
+select 'peralda01', 'Silver Slugger', 2018, 'NL', NULL, 'OF'
 UNION ALL
-select 'gordoal01', 'Silver Slugger', 2018, 'AL', NULL, 'OF'
+select 'martijd02', 'Silver Slugger', 2018, 'AL', NULL, 'OF'
 UNION ALL
-select 'dickeco01', 'Silver Slugger', 2018, 'NL', NULL, 'OF'
+select 'yelicch01', 'Silver Slugger', 2018, 'NL', NULL, 'OF'
 UNION ALL
-select 'bradlja02', 'Silver Slugger', 2018, 'AL', NULL, 'C'
+select 'perezsa02', 'Silver Slugger', 2018, 'AL', NULL, 'C'
 UNION ALL
-select 'inciaen01', 'Silver Slugger', 2018, 'NL', NULL, 'C'
+select 'realmjt01', 'Silver Slugger', 2018, 'NL', NULL, 'C'
 UNION ALL
-select 'bettsmo01', 'Silver Slugger', 2018, 'AL', NULL, 'DH'
+select 'martijd02', 'Silver Slugger', 2018, 'AL', NULL, 'DH'
 UNION ALL
-select 'markani01', 'Silver Slugger', 2018, 'NL', NULL, 'DH'
+select 'marquge01', 'Silver Slugger', 2018, 'NL', NULL, 'DH'
 UNION ALL
 -- Silver Slugger - AL & NL - 2019
 select 'santaca01', 'Silver Slugger', 2019, 'AL', NULL, '1B'
 UNION ALL
 select 'freemfr01', 'Silver Slugger', 2019, 'NL', NULL, '1B'
 UNION ALL
-select 'perezsa02', 'Silver Slugger', 2019, 'AL', NULL, '2B'
+select 'lemahdj01', 'Silver Slugger', 2019, 'AL', NULL, '2B'
 UNION ALL
-select 'molinya01', 'Silver Slugger', 2019, 'NL', NULL, '2B'
+select 'albieoz01', 'Silver Slugger', 2019, 'NL', NULL, '2B'
 UNION ALL
-select 'olsonma02', 'Silver Slugger', 2019, 'AL', NULL, '3B'
+select 'bregmal01', 'Silver Slugger', 2019, 'AL', NULL, '3B'
 UNION ALL
-select 'freemfr01', 'Silver Slugger', 2019, 'NL', NULL, '3B'
+select 'rendoan01', 'Silver Slugger', 2019, 'NL', NULL, '3B'
 UNION ALL
-select 'kinslia01', 'Silver Slugger', 2019, 'AL', NULL, 'SS'
+select 'bogaexa01', 'Silver Slugger', 2019, 'AL', NULL, 'SS'
 UNION ALL
-select 'lemahdj01', 'Silver Slugger', 2019, 'NL', NULL, 'SS'
+select 'storytr01', 'Silver Slugger', 2019, 'NL', NULL, 'SS'
 UNION ALL
-select 'simmoan01', 'Silver Slugger', 2019, 'AL', NULL, 'OF'
+select 'bettsmo01', 'Silver Slugger', 2019, 'AL', NULL, 'OF'
 UNION ALL
-select 'ahmedni01', 'Silver Slugger', 2019, 'NL', NULL, 'OF'
+select 'acunaro01', 'Silver Slugger', 2019, 'NL', NULL, 'OF'
 UNION ALL
-select 'chapmma01', 'Silver Slugger', 2019, 'AL', NULL, 'OF'
+select 'troutmi01', 'Silver Slugger', 2019, 'AL', NULL, 'OF'
 UNION ALL
-select 'arenano01', 'Silver Slugger', 2019, 'NL', NULL, 'OF'
+select 'bellico01', 'Silver Slugger', 2019, 'NL', NULL, 'OF'
 UNION ALL
-select 'gordoal01', 'Silver Slugger', 2019, 'AL', NULL, 'OF'
+select 'springe01', 'Silver Slugger', 2019, 'AL', NULL, 'OF'
 UNION ALL
-select 'dickeco01', 'Silver Slugger', 2019, 'NL', NULL, 'OF'
+select 'yelicch01', 'Silver Slugger', 2019, 'NL', NULL, 'OF'
 UNION ALL
-select 'bradlja02', 'Silver Slugger', 2019, 'AL', NULL, 'C'
+select 'garvemi01', 'Silver Slugger', 2019, 'AL', NULL, 'C'
 UNION ALL
-select 'inciaen01', 'Silver Slugger', 2019, 'NL', NULL, 'C'
+select 'realmjt01', 'Silver Slugger', 2019, 'NL', NULL, 'C'
 UNION ALL
 select 'bettsmo01', 'Silver Slugger', 2019, 'AL', NULL, 'DH'
 UNION ALL
-select 'markani01', 'Silver Slugger', 2019, 'NL', NULL, 'DH'
+select 'greinza01', 'Silver Slugger', 2019, 'NL', NULL, 'DH'
 UNION ALL
 -- Silver Slugger - AL & NL - 2020
 select 'abreujo02', 'Silver Slugger', 2020, 'AL', NULL, '1B'
 UNION ALL
 select 'freemfr01', 'Silver Slugger', 2020, 'NL', NULL, '1B'
 UNION ALL
-select 'perezsa02', 'Silver Slugger', 2020, 'AL', NULL, '2B'
+select 'lemahdj01', 'Silver Slugger', 2020, 'AL', NULL, '2B'
 UNION ALL
-select 'molinya01', 'Silver Slugger', 2020, 'NL', NULL, '2B'
+select 'solando01', 'Silver Slugger', 2020, 'NL', NULL, '2B'
 UNION ALL
-select 'olsonma02', 'Silver Slugger', 2020, 'AL', NULL, '3B'
+select 'ramirjo01', 'Silver Slugger', 2020, 'AL', NULL, '3B'
 UNION ALL
-select 'freemfr01', 'Silver Slugger', 2020, 'NL', NULL, '3B'
+select 'machama01', 'Silver Slugger', 2020, 'NL', NULL, '3B'
 UNION ALL
-select 'kinslia01', 'Silver Slugger', 2020, 'AL', NULL, 'SS'
+select 'anderti01', 'Silver Slugger', 2020, 'AL', NULL, 'SS'
 UNION ALL
-select 'lemahdj01', 'Silver Slugger', 2020, 'NL', NULL, 'SS'
+select 'tatisfe02', 'Silver Slugger', 2020, 'NL', NULL, 'SS'
 UNION ALL
-select 'simmoan01', 'Silver Slugger', 2020, 'AL', NULL, 'OF'
+select 'jimenel02', 'Silver Slugger', 2020, 'AL', NULL, 'OF'
 UNION ALL
-select 'ahmedni01', 'Silver Slugger', 2020, 'NL', NULL, 'OF'
+select 'sotoju01', 'Silver Slugger', 2020, 'NL', NULL, 'OF'
 UNION ALL
-select 'chapmma01', 'Silver Slugger', 2020, 'AL', NULL, 'OF'
+select 'troutmi01', 'Silver Slugger', 2020, 'AL', NULL, 'OF'
 UNION ALL
-select 'arenano01', 'Silver Slugger', 2020, 'NL', NULL, 'OF'
+select 'acunaro01', 'Silver Slugger', 2020, 'NL', NULL, 'OF'
 UNION ALL
-select 'gordoal01', 'Silver Slugger', 2020, 'AL', NULL, 'OF'
+select 'hernate01', 'Silver Slugger', 2020, 'AL', NULL, 'OF'
 UNION ALL
-select 'dickeco01', 'Silver Slugger', 2020, 'NL', NULL, 'OF'
+select 'bettsmo01', 'Silver Slugger', 2020, 'NL', NULL, 'OF'
 UNION ALL
-select 'bradlja02', 'Silver Slugger', 2020, 'AL', NULL, 'C'
+select 'perezsa02', 'Silver Slugger', 2020, 'AL', NULL, 'C'
 UNION ALL
-select 'inciaen01', 'Silver Slugger', 2020, 'NL', NULL, 'C'
+select 'darnatr01', 'Silver Slugger', 2020, 'NL', NULL, 'C'
 UNION ALL
 select 'bettsmo01', 'Silver Slugger', 2020, 'AL', NULL, 'DH'
 UNION ALL
-select 'markani01', 'Silver Slugger', 2020, 'NL', NULL, 'DH'
+select 'ozunama01', 'Silver Slugger', 2020, 'NL', NULL, 'DH'
+
 
 /* Verify
 select * from dbo.HallOfFame where yearID >= 2019 order by yearID;
