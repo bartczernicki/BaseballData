@@ -235,6 +235,170 @@ UNION ALL
 select 'cannigr01', 'Gold Glove', 2020, 'AL', NULL, NULL
 UNION ALL
 select 'friedma01', 'Gold Glove', 2020, 'NL', NULL, NULL
+UNION ALL
+-- Hank Aaron Award - AL & NL
+select 'martijd02', 'Hank Aaron Award', 2018, 'AL', NULL, NULL
+UNION ALL
+select 'yelicch01', 'Hank Aaron Award', 2018, 'NL', NULL, NULL
+UNION ALL
+select 'troutmi01', 'Hank Aaron Award', 2019, 'AL', NULL, NULL
+UNION ALL
+select 'yelicch01', 'Hank Aaron Award', 2019, 'NL', NULL, NULL
+UNION ALL
+select 'abreujo01', 'Hank Aaron Award', 2020, 'AL', NULL, NULL
+UNION ALL
+select 'freemfr01', 'Hank Aaron Award', 2020, 'NL', NULL, NULL
+UNION ALL
+-- Most Valuable Player - AL & NL
+select 'bettsmo01', 'Most Valuable Player', 2018, 'AL', NULL, NULL
+UNION ALL
+select 'yelicch01', 'Most Valuable Player', 2018, 'NL', NULL, NULL
+UNION ALL
+select 'troutmi01', 'Most Valuable Player', 2019, 'AL', NULL, NULL
+UNION ALL
+select 'bellico01', 'Most Valuable Player', 2019, 'NL', NULL, NULL
+UNION ALL
+select 'abreujo01', 'Most Valuable Player', 2020, 'AL', NULL, NULL
+UNION ALL
+select 'freemfr01', 'Most Valuable Player', 2020, 'NL', NULL, NULL
+UNION ALL
+-- NLCS MVP
+select 'bellico01', 'NLCS MVP', 2018, 'NL', NULL, NULL
+UNION ALL
+select 'kendrho01', 'NLCS MVP', 2019, 'NL', NULL, NULL
+UNION ALL
+select 'seageco01', 'NLCS MVP', 2020, 'NL', NULL, NULL
+UNION ALL
+-- Roberto Clemente Award
+select 'molinya01', 'Roberto Clemente Award', 2018, 'NL', NULL, NULL
+UNION ALL
+select 'carraca01', 'Roberto Clemente Award', 2019, 'NL', NULL, NULL
+UNION ALL
+select 'wainwad01', 'Roberto Clemente Award', 2020, 'NL', NULL, NULL
+UNION ALL
+-- Rookie of the Year - AL & NL
+select 'ohtansh01', 'Rookie of the Year', 2018, 'AL', NULL, NULL
+UNION ALL
+select 'acunaro01', 'Rookie of the Year', 2018, 'NL', NULL, NULL
+UNION ALL
+select 'alvaryo01', 'Rookie of the Year', 2019, 'AL', NULL, NULL
+UNION ALL
+select 'alonspe01', 'Rookie of the Year', 2019, 'NL', NULL, NULL
+UNION ALL
+select 'lewisky01', 'Rookie of the Year', 2020, 'AL', NULL, NULL
+UNION ALL
+select 'willide03', 'Rookie of the Year', 2020, 'NL', NULL, NULL
+UNION ALL
+-- Silver Slugger - AL & NL - 2018
+select 'abreujo02', 'Silver Slugger', 2018, 'AL', NULL, '1B'
+UNION ALL
+select 'goldspa01', 'Silver Slugger', 2018, 'NL', NULL, '1B'
+UNION ALL
+select 'perezsa02', 'Silver Slugger', 2018, 'AL', NULL, '2B'
+UNION ALL
+select 'molinya01', 'Silver Slugger', 2018, 'NL', NULL, '2B'
+UNION ALL
+select 'olsonma02', 'Silver Slugger', 2018, 'AL', NULL, '3B'
+UNION ALL
+select 'freemfr01', 'Silver Slugger', 2018, 'NL', NULL, '3B'
+UNION ALL
+select 'kinslia01', 'Silver Slugger', 2018, 'AL', NULL, 'SS'
+UNION ALL
+select 'lemahdj01', 'Silver Slugger', 2018, 'NL', NULL, 'SS'
+UNION ALL
+select 'simmoan01', 'Silver Slugger', 2018, 'AL', NULL, 'OF'
+UNION ALL
+select 'ahmedni01', 'Silver Slugger', 2018, 'NL', NULL, 'OF'
+UNION ALL
+select 'chapmma01', 'Silver Slugger', 2018, 'AL', NULL, 'OF'
+UNION ALL
+select 'arenano01', 'Silver Slugger', 2018, 'NL', NULL, 'OF'
+UNION ALL
+select 'gordoal01', 'Silver Slugger', 2018, 'AL', NULL, 'OF'
+UNION ALL
+select 'dickeco01', 'Silver Slugger', 2018, 'NL', NULL, 'OF'
+UNION ALL
+select 'bradlja02', 'Silver Slugger', 2018, 'AL', NULL, 'C'
+UNION ALL
+select 'inciaen01', 'Silver Slugger', 2018, 'NL', NULL, 'C'
+UNION ALL
+select 'bettsmo01', 'Silver Slugger', 2018, 'AL', NULL, 'DH'
+UNION ALL
+select 'markani01', 'Silver Slugger', 2018, 'NL', NULL, 'DH'
+UNION ALL
+-- Silver Slugger - AL & NL - 2019
+select 'santaca01', 'Silver Slugger', 2019, 'AL', NULL, '1B'
+UNION ALL
+select 'freemfr01', 'Silver Slugger', 2019, 'NL', NULL, '1B'
+UNION ALL
+select 'perezsa02', 'Silver Slugger', 2019, 'AL', NULL, '2B'
+UNION ALL
+select 'molinya01', 'Silver Slugger', 2019, 'NL', NULL, '2B'
+UNION ALL
+select 'olsonma02', 'Silver Slugger', 2019, 'AL', NULL, '3B'
+UNION ALL
+select 'freemfr01', 'Silver Slugger', 2019, 'NL', NULL, '3B'
+UNION ALL
+select 'kinslia01', 'Silver Slugger', 2019, 'AL', NULL, 'SS'
+UNION ALL
+select 'lemahdj01', 'Silver Slugger', 2019, 'NL', NULL, 'SS'
+UNION ALL
+select 'simmoan01', 'Silver Slugger', 2019, 'AL', NULL, 'OF'
+UNION ALL
+select 'ahmedni01', 'Silver Slugger', 2019, 'NL', NULL, 'OF'
+UNION ALL
+select 'chapmma01', 'Silver Slugger', 2019, 'AL', NULL, 'OF'
+UNION ALL
+select 'arenano01', 'Silver Slugger', 2019, 'NL', NULL, 'OF'
+UNION ALL
+select 'gordoal01', 'Silver Slugger', 2019, 'AL', NULL, 'OF'
+UNION ALL
+select 'dickeco01', 'Silver Slugger', 2019, 'NL', NULL, 'OF'
+UNION ALL
+select 'bradlja02', 'Silver Slugger', 2019, 'AL', NULL, 'C'
+UNION ALL
+select 'inciaen01', 'Silver Slugger', 2019, 'NL', NULL, 'C'
+UNION ALL
+select 'bettsmo01', 'Silver Slugger', 2019, 'AL', NULL, 'DH'
+UNION ALL
+select 'markani01', 'Silver Slugger', 2019, 'NL', NULL, 'DH'
+UNION ALL
+-- Silver Slugger - AL & NL - 2020
+select 'abreujo02', 'Silver Slugger', 2020, 'AL', NULL, '1B'
+UNION ALL
+select 'freemfr01', 'Silver Slugger', 2020, 'NL', NULL, '1B'
+UNION ALL
+select 'perezsa02', 'Silver Slugger', 2020, 'AL', NULL, '2B'
+UNION ALL
+select 'molinya01', 'Silver Slugger', 2020, 'NL', NULL, '2B'
+UNION ALL
+select 'olsonma02', 'Silver Slugger', 2020, 'AL', NULL, '3B'
+UNION ALL
+select 'freemfr01', 'Silver Slugger', 2020, 'NL', NULL, '3B'
+UNION ALL
+select 'kinslia01', 'Silver Slugger', 2020, 'AL', NULL, 'SS'
+UNION ALL
+select 'lemahdj01', 'Silver Slugger', 2020, 'NL', NULL, 'SS'
+UNION ALL
+select 'simmoan01', 'Silver Slugger', 2020, 'AL', NULL, 'OF'
+UNION ALL
+select 'ahmedni01', 'Silver Slugger', 2020, 'NL', NULL, 'OF'
+UNION ALL
+select 'chapmma01', 'Silver Slugger', 2020, 'AL', NULL, 'OF'
+UNION ALL
+select 'arenano01', 'Silver Slugger', 2020, 'NL', NULL, 'OF'
+UNION ALL
+select 'gordoal01', 'Silver Slugger', 2020, 'AL', NULL, 'OF'
+UNION ALL
+select 'dickeco01', 'Silver Slugger', 2020, 'NL', NULL, 'OF'
+UNION ALL
+select 'bradlja02', 'Silver Slugger', 2020, 'AL', NULL, 'C'
+UNION ALL
+select 'inciaen01', 'Silver Slugger', 2020, 'NL', NULL, 'C'
+UNION ALL
+select 'bettsmo01', 'Silver Slugger', 2020, 'AL', NULL, 'DH'
+UNION ALL
+select 'markani01', 'Silver Slugger', 2020, 'NL', NULL, 'DH'
 
 /* Verify
 select * from dbo.HallOfFame where yearID >= 2019 order by yearID;
