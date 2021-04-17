@@ -1,5 +1,7 @@
 set nocount on;
 
+-- 1) HALLOFFAME INSERTS
+
 -- DELETE the HallOFame Batters (Inserted Below)
 delete from dbo.HallOfFame where 
 (yearID = 2019 OR yearID = 2020 OR yearID = 2050)
@@ -95,6 +97,107 @@ select 'suzukic01', 2050, 'CUSTOM', 422, 422, 422, 'Y', 'player', NULL
 UNION ALL
 select 'ortizda01', 2050, 'CUSTOM', 422, 422, 422, 'Y', 'player', NULL
 go
+
+-- 2) AWARDSPLAYERS
+delete from dbo.AwardsPlayers where 
+(yearID > 2017)
+
+insert into dbo.AwardsPlayers
+(playerID, awardID, yearID, lgID, tie, notes)
+-- ALCS MVP
+select 'bradlja02', 'ALCS MVP', 2018, 'AL', NULL, NULL
+UNION ALL
+select 'altuvjo01', 'ALCS MVP', 2019, 'AL', NULL, NULL
+UNION ALL
+select 'arozara01', 'ALCS MVP', 2020, 'AL', NULL, NULL
+UNION ALL
+-- Comeback Player of the Year - AL
+select 'priceda01', 'Comeback Player of the Year', 2018, 'AL', NULL, NULL
+UNION ALL
+select 'carraca01', 'Comeback Player of the Year', 2019, 'AL', NULL, NULL
+UNION ALL
+select 'arozara01', 'Comeback Player of the Year', 2020, 'AL', NULL, NULL
+UNION ALL
+-- Comeback Player of the Year - NL
+select 'ventejo01', 'Comeback Player of the Year', 2018, 'NL', NULL, NULL
+UNION ALL
+select 'donaljo02', 'Comeback Player of the Year', 2019, 'NL', NULL, NULL
+UNION ALL
+select 'perezsa02', 'Comeback Player of the Year', 2020, 'NL', NULL, NULL
+UNION ALL
+-- Gold Glove - AL & NL - 2018
+select 'keuchda01', 'Gold Glove', 2018, 'AL', NULL, NULL
+UNION ALL
+select 'greinza01', 'Gold Glove', 2018, 'NL', NULL, NULL
+UNION ALL
+select 'perezsa02', 'Gold Glove', 2018, 'AL', NULL, NULL
+UNION ALL
+select 'molinya01', 'Gold Glove', 2018, 'NL', NULL, NULL
+UNION ALL
+select 'olsonma02', 'Gold Glove', 2018, 'AL', NULL, NULL
+UNION ALL
+select 'freemfr01', 'Gold Glove', 2018, 'NL', NULL, NULL
+UNION ALL
+select 'kinslia01', 'Gold Glove', 2018, 'AL', NULL, NULL
+UNION ALL
+select 'lemahdj01', 'Gold Glove', 2018, 'NL', NULL, NULL
+UNION ALL
+select 'simmoan01', 'Gold Glove', 2018, 'AL', NULL, NULL
+UNION ALL
+select 'ahmedni01', 'Gold Glove', 2018, 'NL', NULL, NULL
+UNION ALL
+select 'chapmma01', 'Gold Glove', 2018, 'AL', NULL, NULL
+UNION ALL
+select 'arenano01', 'Gold Glove', 2018, 'NL', NULL, NULL
+UNION ALL
+select 'gordoal01', 'Gold Glove', 2018, 'AL', NULL, NULL
+UNION ALL
+select 'dickeco01', 'Gold Glove', 2018, 'NL', NULL, NULL
+UNION ALL
+select 'bradlja02', 'Gold Glove', 2018, 'AL', NULL, NULL
+UNION ALL
+select 'inciaen01', 'Gold Glove', 2018, 'NL', NULL, NULL
+UNION ALL
+select 'bettsmo01', 'Gold Glove', 2018, 'AL', NULL, NULL
+UNION ALL
+select 'markani01', 'Gold Glove', 2018, 'NL', NULL, NULL
+UNION ALL
+-- Gold Glove - AL & NL - 2019
+select 'keuchda01', 'Gold Glove', 2019, 'AL', NULL, NULL
+UNION ALL
+select 'greinza01', 'Gold Glove', 2019, 'NL', NULL, NULL
+UNION ALL
+select 'perezsa02', 'Gold Glove', 2019, 'AL', NULL, NULL
+UNION ALL
+select 'molinya01', 'Gold Glove', 2019, 'NL', NULL, NULL
+UNION ALL
+select 'olsonma02', 'Gold Glove', 2019, 'AL', NULL, NULL
+UNION ALL
+select 'freemfr01', 'Gold Glove', 2019, 'NL', NULL, NULL
+UNION ALL
+select 'kinslia01', 'Gold Glove', 2019, 'AL', NULL, NULL
+UNION ALL
+select 'lemahdj01', 'Gold Glove', 2019, 'NL', NULL, NULL
+UNION ALL
+select 'simmoan01', 'Gold Glove', 2019, 'AL', NULL, NULL
+UNION ALL
+select 'ahmedni01', 'Gold Glove', 2019, 'NL', NULL, NULL
+UNION ALL
+select 'chapmma01', 'Gold Glove', 2019, 'AL', NULL, NULL
+UNION ALL
+select 'arenano01', 'Gold Glove', 2019, 'NL', NULL, NULL
+UNION ALL
+select 'gordoal01', 'Gold Glove', 2019, 'AL', NULL, NULL
+UNION ALL
+select 'dickeco01', 'Gold Glove', 2019, 'NL', NULL, NULL
+UNION ALL
+select 'bradlja02', 'Gold Glove', 2019, 'AL', NULL, NULL
+UNION ALL
+select 'inciaen01', 'Gold Glove', 2019, 'NL', NULL, NULL
+UNION ALL
+select 'bettsmo01', 'Gold Glove', 2019, 'AL', NULL, NULL
+UNION ALL
+select 'markani01', 'Gold Glove', 2019, 'NL', NULL, NULL
 
 /* Verify
 select * from dbo.HallOfFame where yearID >= 2019 order by yearID;
