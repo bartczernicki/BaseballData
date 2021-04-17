@@ -399,7 +399,99 @@ UNION ALL
 select 'bettsmo01', 'Silver Slugger', 2020, 'AL', NULL, 'DH'
 UNION ALL
 select 'ozunama01', 'Silver Slugger', 2020, 'NL', NULL, 'DH'
+UNION ALL
+-- TSN All-Star - NL - 2018
+select 'contrwi01', 'TSN All-Star', 2018, 'NL', NULL, 'C'
+UNION ALL
+select 'molinya01', 'TSN All-Star', 2018, 'NL', NULL, 'C'
+UNION ALL
+select 'poseybu01', 'TSN All-Star', 2018, 'NL', NULL, 'C'
+UNION ALL
+select 'realmjt01', 'TSN All-Star', 2018, 'NL', NULL, 'C'
+UNION ALL
+select 'freemfr01', 'TSN All-Star', 2018, 'NL', NULL, '1B'
+UNION ALL
+select 'aguilje01', 'TSN All-Star', 2018, 'NL', NULL, '1B'
+UNION ALL
+select 'goldspa01', 'TSN All-Star', 2018, 'NL', NULL, '1B'
+UNION ALL
+select 'vottojo01', 'TSN All-Star', 2018, 'NL', NULL, '1B'
+UNION ALL
+select 'baezja01', 'TSN All-Star', 2018, 'NL', NULL, '2B'
+UNION ALL
+select 'albieoz01', 'TSN All-Star', 2018, 'NL', NULL, '2B'
+UNION ALL
+select 'gennesc01', 'TSN All-Star', 2018, 'NL', NULL, '2B'
+UNION ALL
+select 'arenano01', 'TSN All-Star', 2018, 'NL', NULL, '3B'
+UNION ALL
+select 'suareeu01', 'TSN All-Star', 2018, 'NL', NULL, '3B'
+UNION ALL
+select 'crawfbr01', 'TSN All-Star', 2018, 'NL', NULL, 'SS'
+UNION ALL
+select 'storytr01', 'TSN All-Star', 2018, 'NL', NULL, 'SS'
+UNION ALL
+select 'markani01', 'TSN All-Star', 2018, 'NL', NULL, 'OF'
+UNION ALL
+select 'kempma01', 'TSN All-Star', 2018, 'NL', NULL, 'OF'
+UNION ALL
+select 'harpebr03', 'TSN All-Star', 2018, 'NL', NULL, 'OF'
+UNION ALL
+select 'blackch02', 'TSN All-Star', 2018, 'NL', NULL, 'OF'
+UNION ALL
+select 'cainlo01', 'TSN All-Star', 2018, 'NL', NULL, 'OF'
+UNION ALL
+select 'yelicch01', 'TSN All-Star', 2018, 'NL', NULL, 'OF'
+UNION ALL
+-- TSN All-Star - AL - 2018
+select 'ramoswi01', 'TSN All-Star', 2018, 'AL', NULL, 'C'
+UNION ALL
+select 'perezsa02', 'TSN All-Star', 2018, 'AL', NULL, 'C'
+UNION ALL
+select 'gomesya01', 'TSN All-Star', 2018, 'AL', NULL, 'C'
+UNION ALL
+select 'cruzne02', 'TSN All-Star', 2018, 'AL', NULL, 'DH'
+UNION ALL
+select 'abreujo02', 'TSN All-Star', 2018, 'AL', NULL, '1B'
+UNION ALL
+select 'morelmi01', 'TSN All-Star', 2018, 'AL', NULL, '1B'
+UNION ALL
+select 'altuvjo01', 'TSN All-Star', 2018, 'AL', NULL, '2B'
+UNION ALL
+select 'lowrije01', 'TSN All-Star', 2018, 'AL', NULL, '2B'
+UNION ALL
+select 'torregl01', 'TSN All-Star', 2018, 'AL', NULL, '2B'
+UNION ALL
+select 'ramirjo01', 'TSN All-Star', 2018, 'AL', NULL, '3B'
+UNION ALL
+select 'bregmal01', 'TSN All-Star', 2018, 'AL', NULL, '3B'
+UNION ALL
+select 'machama01', 'TSN All-Star', 2018, 'AL', NULL, 'SS'
+UNION ALL
+select 'lindofr01', 'TSN All-Star', 2018, 'AL', NULL, 'SS'
+UNION ALL
+select 'segurje01', 'TSN All-Star', 2018, 'AL', NULL, 'SS'
+UNION ALL
+select 'troutmi01', 'TSN All-Star', 2018, 'AL', NULL, 'OF'
+UNION ALL
+select 'judgeaa01', 'TSN All-Star', 2018, 'AL', NULL, 'OF'
+UNION ALL
+select 'martijd02', 'TSN All-Star', 2018, 'AL', NULL, 'OF'
+UNION ALL
+select 'choosh01', 'TSN All-Star', 2018, 'AL', NULL, 'OF'
+UNION ALL
+select 'hanigmi01', 'TSN All-Star', 2018, 'AL', NULL, 'OF'
+UNION ALL
+select 'springe01', 'TSN All-Star', 2018, 'AL', NULL, 'OF'
 
+
+UNION ALL
+-- World Series MVP
+select 'pearcst01', 'World Series MVP', 2018, 'AL', NULL, NULL
+UNION ALL
+select 'strasst01', 'World Series MVP', 2019, 'NL', NULL, NULL
+UNION ALL
+select 'seageco01', 'World Series MVP', 2020, 'NL', NULL, NULL
 
 /* Verify
 select * from dbo.HallOfFame where yearID >= 2019 order by yearID;
