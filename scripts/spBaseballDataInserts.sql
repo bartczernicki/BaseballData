@@ -569,10 +569,44 @@ UNION ALL
 select 'meadoau01', 'TSN All-Star', 2019, 'AL', NULL, 'OF'
 UNION ALL
 select 'merriwh01', 'TSN All-Star', 2019, 'AL', NULL, 'OF'
-
-
-
-
+UNION ALL
+-- TSN All-Star - NL - 2020
+select 'realmjt01', 'TSN All-Star', 2020, 'NL', NULL, 'C'
+UNION ALL
+select 'freemfr01', 'TSN All-Star', 2020, 'NL', NULL, '1B'
+UNION ALL
+select 'solando01', 'TSN All-Star', 2020, 'NL', NULL, '2B'
+UNION ALL
+select 'machama01', 'TSN All-Star', 2020, 'NL', NULL, '3B'
+UNION ALL
+select 'tatisfe02', 'TSN All-Star', 2020, 'NL', NULL, 'SS'
+UNION ALL
+select 'yastrmi01', 'TSN All-Star', 2020, 'NL', NULL, 'OF'
+UNION ALL
+select 'bettsmo01', 'TSN All-Star', 2020, 'NL', NULL, 'OF'
+UNION ALL
+select 'harpebr03', 'TSN All-Star', 2020, 'NL', NULL, 'OF'
+UNION ALL
+select 'winkeje01', 'TSN All-Star', 2020, 'NL', NULL, 'DH'
+UNION ALL
+-- TSN All-Star - AL - 2020
+select 'severpe01', 'TSN All-Star', 2020, 'AL', NULL, 'C'
+UNION ALL
+select 'voitlu01', 'TSN All-Star', 2020, 'AL', NULL, '1B'
+UNION ALL
+select 'lowebr01', 'TSN All-Star', 2020, 'AL', NULL, '2B'
+UNION ALL
+select 'rendoan01', 'TSN All-Star', 2020, 'AL', NULL, '3B'
+UNION ALL
+select 'anderti01', 'TSN All-Star', 2020, 'AL', NULL, 'SS'
+UNION ALL
+select 'lewisky01', 'TSN All-Star', 2020, 'AL', NULL, 'OF'
+UNION ALL
+select 'troutmi01', 'TSN All-Star', 2020, 'AL', NULL, 'OF'
+UNION ALL
+select 'judgeaa01', 'TSN All-Star', 2020, 'AL', NULL, 'OF'
+UNION ALL
+select 'cruzne02', 'TSN All-Star', 2020, 'AL', NULL, 'DH'
 UNION ALL
 -- World Series MVP
 select 'pearcst01', 'World Series MVP', 2018, 'AL', NULL, NULL
