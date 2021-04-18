@@ -483,6 +483,94 @@ UNION ALL
 select 'hanigmi01', 'TSN All-Star', 2018, 'AL', NULL, 'OF'
 UNION ALL
 select 'springe01', 'TSN All-Star', 2018, 'AL', NULL, 'OF'
+UNION ALL
+-- TSN All-Star - NL - 2019
+select 'contrwi01', 'TSN All-Star', 2019, 'NL', NULL, 'C'
+UNION ALL
+select 'grandya01', 'TSN All-Star', 2019, 'NL', NULL, 'C'
+UNION ALL
+select 'realmjt01', 'TSN All-Star', 2019, 'NL', NULL, 'C'
+UNION ALL
+select 'freemfr01', 'TSN All-Star', 2019, 'NL', NULL, '1B'
+UNION ALL
+select 'alonspe01', 'TSN All-Star', 2019, 'NL', NULL, '1B'
+UNION ALL
+select 'belljo02', 'TSN All-Star', 2019, 'NL', NULL, '1B'
+UNION ALL
+select 'muncyma01', 'TSN All-Star', 2019, 'NL', NULL, '1B'
+UNION ALL
+select 'marteke01', 'TSN All-Star', 2019, 'NL', NULL, '2B'
+UNION ALL
+select 'moustmi01', 'TSN All-Star', 2019, 'NL', NULL, '2B'
+UNION ALL
+select 'arenano01', 'TSN All-Star', 2019, 'NL', NULL, '3B'
+UNION ALL
+select 'bryankr01', 'TSN All-Star', 2019, 'NL', NULL, '3B'
+UNION ALL
+select 'rendoan01', 'TSN All-Star', 2019, 'NL', NULL, '3B'
+UNION ALL
+select 'baezja01', 'TSN All-Star', 2019, 'NL', NULL, 'SS'
+UNION ALL
+select 'dejonpa01', 'TSN All-Star', 2019, 'NL', NULL, 'SS'
+UNION ALL
+select 'storytr01', 'TSN All-Star', 2019, 'NL', NULL, 'SS'
+UNION ALL
+select 'acunaro01', 'TSN All-Star', 2019, 'NL', NULL, 'OF'
+UNION ALL
+select 'bellico01', 'TSN All-Star', 2019, 'NL', NULL, 'OF'
+UNION ALL
+select 'yelicch01', 'TSN All-Star', 2019, 'NL', NULL, 'OF'
+UNION ALL
+select 'blackch02', 'TSN All-Star', 2019, 'NL', NULL, 'OF'
+UNION ALL
+select 'dahlda01', 'TSN All-Star', 2019, 'NL', NULL, 'OF'
+UNION ALL
+select 'mcneije01', 'TSN All-Star', 2019, 'NL', NULL, 'OF'
+UNION ALL
+-- TSN All-Star - AL - 2019
+select 'sanchga02', 'TSN All-Star', 2019, 'AL', NULL, 'C'
+UNION ALL
+select 'mccanja02', 'TSN All-Star', 2019, 'AL', NULL, 'C'
+UNION ALL
+select 'martijd02', 'TSN All-Star', 2019, 'AL', NULL, 'DH'
+UNION ALL
+select 'pencehu01', 'TSN All-Star', 2019, 'AL', NULL, 'DH'
+UNION ALL
+select 'santaca01', 'TSN All-Star', 2019, 'AL', NULL, '1B'
+UNION ALL
+select 'abreujo02', 'TSN All-Star', 2019, 'AL', NULL, '1B'
+UNION ALL
+select 'vogelda01', 'TSN All-Star', 2019, 'AL', NULL, '1B'
+UNION ALL
+select 'lemahdj01', 'TSN All-Star', 2019, 'AL', NULL, '2B'
+UNION ALL
+select 'lasteto01', 'TSN All-Star', 2019, 'AL', NULL, '2B'
+UNION ALL
+select 'lowebr01', 'TSN All-Star', 2019, 'AL', NULL, '2B'
+UNION ALL
+select 'bregmal01', 'TSN All-Star', 2019, 'AL', NULL, '3B'
+UNION ALL
+select 'chapmma01', 'TSN All-Star', 2019, 'AL', NULL, '3B'
+UNION ALL
+select 'polanjo01', 'TSN All-Star', 2019, 'AL', NULL, 'SS'
+UNION ALL
+select 'bogaexa01', 'TSN All-Star', 2019, 'AL', NULL, 'SS'
+UNION ALL
+select 'lindofr01', 'TSN All-Star', 2019, 'AL', NULL, 'SS'
+UNION ALL
+select 'troutmi01', 'TSN All-Star', 2019, 'AL', NULL, 'OF'
+UNION ALL
+select 'brantmi02', 'TSN All-Star', 2019, 'AL', NULL, 'OF'
+UNION ALL
+select 'bettsmo01', 'TSN All-Star', 2019, 'AL', NULL, 'OF'
+UNION ALL
+select 'gallojo01', 'TSN All-Star', 2019, 'AL', NULL, 'OF'
+UNION ALL
+select 'meadoau01', 'TSN All-Star', 2019, 'AL', NULL, 'OF'
+UNION ALL
+select 'merriwh01', 'TSN All-Star', 2019, 'AL', NULL, 'OF'
+
+
 
 
 UNION ALL
