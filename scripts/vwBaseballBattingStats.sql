@@ -1,3 +1,8 @@
+/*
+SQL Server, Azure SQL Compatible View that creates historical batting statistics for MLB players
+Note: Baseline is the Sean Lahman database.
+*/
+
 if object_id('vwBaseballBattingStats') is NOT NULL
 drop view vwBaseballBattingStats
 go
@@ -5,9 +10,10 @@ go
 create view vwBaseballBattingStats as
 select distinct
 m.playerID,
-(m.nameFirst + ' ' + m.nameLast) as FullPlayerName, --m.hofID,
+(m.nameFirst + ' ' + m.nameLast) as FullPlayerName,
+case when (primaryPitcherBatters.playerID is NULL) then 1 else 0 end as PrimaryPositionPlayer,
 case when ((h.inducted = 'Y' and h.votedBy IN ('BBWAA', 'Special Election', 'Run Off', 'CUSTOM'))) then 1 else 0 end as InductedToHallOfFame,
-case when ((hofvote.playerID is not NULL)) then 1 else 0 end as OnHallOfFameBallot,
+case when ((hofvote.playerID is NOT NULL)) then 1 else 0 end as OnHallOfFameBallot,
 hofvote.MaxBallotVotePercentage,
 dense_rank() OVER (PARTITION BY m.playerID ORDER BY m.playerID, b.yearID) as 'YearsPlayed',
 sum(b.AB) OVER (PARTITION BY m.playerID ORDER BY m.playerID, b.yearID) as 'AB',
@@ -90,30 +96,27 @@ left outer join (
 select playerID, yearID, count(awardID) as SilverSluggerCount
 from dbo.AwardsPlayers where AwardID = 'Silver Slugger'
 group by playerID, yearID) silverSlugger on (m.playerId = silverSlugger.playerId AND b.yearID = silverSlugger.yearID)
--- Major League Player of the Year
+---- Major League Player of the Year
 left outer join (
 select playerID, yearID, count(awardID) as MajorLeaguePlayerOfTheYearCount
-from dbo.AwardsPlayers where AwardID = 'Major League Player of the Year'
+from dbo.AwardsPlayers where AwardID = 'TSN Major League Player of the Year'
 group by playerID, yearID) majorLeaguePlayerOfTheYear on (m.playerId = majorLeaguePlayerOfTheYear.playerId AND b.yearID = majorLeaguePlayerOfTheYear.yearID)
-where
--- more recent players
--- m.birthYear > 1880 and
--- don't include pitchers & players who are mostly pitchers
-m.playerID NOT IN (
-select playerID from
-(
-select f2.*, f2.PitchingGames/convert(decimal, (coalesce(f1.NonPitchingGames, 0) + f2.PitchingGames)) as PitchingRatio
-from
-(select playerID, sum(G) as NonPitchingGames from dbo.Fielding where POS != 'P' group by playerID) as f1 right outer join
-(select playerID, sum(G) as PitchingGames from dbo.Fielding where POS = 'P' group by playerID) as f2
-on f1.playerID = f2.playerID
-where
-f2.PitchingGames/convert(decimal, (coalesce(f1.NonPitchingGames, 0) + f2.PitchingGames)) > 0.65
--- order by PitchingGames desc
-) as PrimaryPitchers
-)
---and (m.nameFirst + ' ' + m.nameLast) = 'Stan Musial' OR (m.nameFirst + ' ' + m.nameLast) = 'Hank Aaron'
+left outer join (
+	select playerID from
+	(
+	select f2.*, f2.PitchingGames/convert(decimal, (coalesce(f1.NonPitchingGames, 0) + f2.PitchingGames)) as PitchingRatio
+	from
+	(select playerID, sum(G) as NonPitchingGames from dbo.Fielding where POS != 'P' group by playerID) as f1 right outer join
+	(select playerID, sum(G) as PitchingGames from dbo.Fielding where POS = 'P' group by playerID) as f2
+	on f1.playerID = f2.playerID
+	where
+	f2.PitchingGames/convert(decimal, (coalesce(f1.NonPitchingGames, 0) + f2.PitchingGames)) > 0.65
+	) as PrimaryPitchers
+) primaryPitcherBatters on (m.playerID = primaryPitcherBatters.playerID)
 go
+
+-- Re-Create MLBBaseballBattersHistorical table by dropping and re-inserting to the table
+set nocount on;
 
 if object_id('MLBBaseballBattersHistorical') is NOT NULL
 drop table MLBBaseballBattersHistorical
@@ -128,9 +131,8 @@ AllStarAppearances, MVPs, TripleCrowns, GoldGloves, MajorLeaguePlayerOfTheYearAw
 TB, TotalPlayerAwards, LastYearPlayed,
 playerID as ID
 --, playerID
-into MLBBaseballBattersHistorical -- select into
+into dbo.MLBBaseballBattersHistorical
 from dbo.vwBaseballBattingStats
-where MaxAB >= 500
 go
 
 /*
@@ -164,7 +166,7 @@ where
 InductedToHallOfFame = 'FALSE' and ID % 3 != 0
 order by LastYearPlayed asc;
 */
-select count(*) as 'MLBBaseballBatters-Full' from MLBBaseballBattersHistorical
+-- select count(*) as 'MLBBaseballBattersHistorical - Count' from MLBBaseballBattersHistorical
 
 /*
 select
