@@ -78,7 +78,7 @@ UNION ALL
 select 'walkela01', 2020, 'BBWAA', 422, 317, 304, 'Y', 'player', NULL
 UNION ALL
 select 'jeterde01', 2020, 'BBWAA', 422, 317, 396, 'Y', 'player', NULL
-go
+
 -- INSERT HallOfFame
 -- Pete Rose, Rafeal Pameiro, Barry Bonds, Alex Rodriguez, Miguel Cabrera
 -- Mark McGwire, Sammy Sosa, Manny Ramirez, Albert Pujols, Ichiro Suzuki, David Ortiz
@@ -621,6 +621,11 @@ select 'strasst01', 'World Series MVP', 2019, 'NL', NULL, NULL
 UNION ALL
 select 'seageco01', 'World Series MVP', 2020, 'NL', NULL, NULL
 go
+
+/*
+exec spBaseballDataInsert;
+*/
+
 
 /* Verify
 select * from dbo.HallOfFame where yearID >= 2019 order by yearID;
