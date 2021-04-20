@@ -1,3 +1,10 @@
+if object_id('spBaseballDataInsert') is NOT NULL
+drop proc spBaseballDataInsert
+go
+
+create proc spBaseballDataInsert
+as
+
 set nocount on;
 
 -- 1) HALLOFFAME INSERTS
@@ -96,7 +103,6 @@ UNION ALL
 select 'suzukic01', 2050, 'CUSTOM', 422, 422, 422, 'Y', 'player', NULL
 UNION ALL
 select 'ortizda01', 2050, 'CUSTOM', 422, 422, 422, 'Y', 'player', NULL
-go
 
 -- 2) AWARDSPLAYERS
 delete from dbo.AwardsPlayers where 
@@ -614,6 +620,7 @@ UNION ALL
 select 'strasst01', 'World Series MVP', 2019, 'NL', NULL, NULL
 UNION ALL
 select 'seageco01', 'World Series MVP', 2020, 'NL', NULL, NULL
+go
 
 /* Verify
 select * from dbo.HallOfFame where yearID >= 2019 order by yearID;
