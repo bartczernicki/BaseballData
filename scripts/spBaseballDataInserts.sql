@@ -11,7 +11,7 @@ set nocount on;
 
 -- DELETE the HallOFame Batters (Inserted Below)
 delete from dbo.HallOfFame where 
-(yearID = 2019 OR yearID = 2020 OR yearID = 2050)
+(yearID >= 2019)
 
 -- REMOVE jonesja05 (error in Lahman)
 delete from dbo.HallOfFame where
@@ -70,9 +70,12 @@ UNION ALL
 select 'figgich01', 2020, 'BBWAA', 400, 300, 0, 'N', 'player', NULL
 
 -- INSERT HallOfFame
--- Edgar Martinez, Derek Jeter, Larry Walker - 2019
+-- David Ortiz - 2022
+-- Edgar Martinez, Derek Jeter - 2020; Larry Walker - 2019
 insert into dbo.HallOfFame
 (playerID, yearID, votedBy, ballots, needed, votes, inducted, category, needed_note)
+select 'ortizda01', 2022, 'BBWAA', 422, 317, 307, 'Y', 'player', NULL
+UNION ALL
 select 'martied01', 2019, 'BBWAA', 422, 317, 363, 'Y', 'player', NULL
 UNION ALL
 select 'walkela01', 2020, 'BBWAA', 422, 317, 304, 'Y', 'player', NULL
@@ -101,10 +104,9 @@ UNION ALL
 select 'ramirma02', 2050, 'CUSTOM', 422, 422, 422, 'Y', 'player', NULL
 UNION ALL
 select 'suzukic01', 2050, 'CUSTOM', 422, 422, 422, 'Y', 'player', NULL
-UNION ALL
-select 'ortizda01', 2050, 'CUSTOM', 422, 422, 422, 'Y', 'player', NULL
 
 -- 2) AWARDSPLAYERS
+/*
 delete from dbo.AwardsPlayers where 
 (yearID > 2017)
 
@@ -621,6 +623,7 @@ select 'strasst01', 'World Series MVP', 2019, 'NL', NULL, NULL
 UNION ALL
 select 'seageco01', 'World Series MVP', 2020, 'NL', NULL, NULL
 go
+*/
 
 /*
 exec spBaseballDataInsert;
@@ -628,7 +631,7 @@ exec spBaseballDataInsert;
 
 
 /* Verify
-select * from dbo.HallOfFame where yearID >= 2019 order by yearID;
+select * from dbo.HallOfFame where yearID >= 2019 order by yearID desc;
 
 select * from people where nameLast = 'Martinez' and nameFirst = 'Edgar'
 UNION ALL
