@@ -58,7 +58,7 @@ coalesce(sum(majorLeaguePlayerOfTheYear.MajorLeaguePlayerOfTheYearCount) OVER (P
 max(b.yearID) OVER (PARTITION BY m.playerID ORDER BY m.playerID) as LastYearPlayed,
 max(b.AB) OVER (PARTITION BY m.playerID ORDER BY m.playerID) as MaxAB
 from
-dbo.People2020 m inner join dbo.Batting2020 b on (m.playerID = b.playerId)
+dbo.People m inner join dbo.Batting b on (m.playerID = b.playerId)
 left outer join (SELECT distinct playerID, max(votes/convert(decimal, needed)) as MaxBallotVotePercentage
 FROM dbo.HallOfFame where category = 'Player' and votedBy IN ('BBWAA', 'Special Election', 'Run Off', 'CUSTOM')
 group by playerID) hofvote on (m.playerID = hofvote.playerID)
