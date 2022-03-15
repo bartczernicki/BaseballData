@@ -28,6 +28,17 @@ into dbo.MLBBaseballBattersHistorical
 from dbo.vwMLBBaseballBattersHistorical
 go
 
+if object_id('MLBBaseballBattersHistoricalPositionPlayers') is NOT NULL
+drop table MLBBaseballBattersHistoricalPositionPlayers
+go
+select
+InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,PrimaryPositionPlayer,YearsPlayed,AB,R,H,Doubles,Triples,HR,
+RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed,ID
+into dbo.MLBBaseballBattersHistoricalPositionPlayers
+from dbo.vwMLBBaseballBattersHistorical
+where (PrimaryPositionPlayer = 1)
+go
+
 if object_id('MLBBaseballBatters') is NOT NULL
 drop table MLBBaseballBatters
 go
