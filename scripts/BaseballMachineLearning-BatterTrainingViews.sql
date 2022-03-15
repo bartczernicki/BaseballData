@@ -22,7 +22,7 @@ if object_id('MLBBaseballBattersHistorical') is NOT NULL
 drop table MLBBaseballBattersHistorical
 go
 select
-InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,PrimaryPositionPlayer,YearsPlayed,AB,R,H,Doubles,Triples,HR,
+InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,
 RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed,ID
 into dbo.MLBBaseballBattersHistorical
 from dbo.vwMLBBaseballBattersHistorical
@@ -32,7 +32,7 @@ if object_id('MLBBaseballBattersHistoricalPositionPlayers') is NOT NULL
 drop table MLBBaseballBattersHistoricalPositionPlayers
 go
 select
-InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,PrimaryPositionPlayer,YearsPlayed,AB,R,H,Doubles,Triples,HR,
+InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,
 RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed,ID
 into dbo.MLBBaseballBattersHistoricalPositionPlayers
 from dbo.vwMLBBaseballBattersHistorical
