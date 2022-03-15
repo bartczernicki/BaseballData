@@ -1,94 +1,85 @@
-if object_id('vwMLBBaseballBattersHistorical') is NOT NULL
-drop view vwMLBBaseballBattersHistorical
+-- Re-Create MLBBaseballBattersHistorical table by dropping and re-inserting to the table
+set nocount on;
+
+if object_id('MLBBaseballBattersHistorical') is NOT NULL
+drop table MLBBaseballBattersHistorical
 go
-create view vwMLBBaseballBattersHistorical
-as
-
-select 
-	  InductedToHallOfFame, OnHallOfFameBallot, FullPlayerName, 
-	  YearsPlayed, AB, R, H, Doubles, Triples, HR, RBI, SB, 
-	  BattingAverage, SluggingPct, AllStarAppearances,
-	  TB, TotalPlayerAwards,LastYearPlayed, ID
-      from dbo.MLBBaseballBatters m
-
-go
-/*
-select * from vwMLBBaseballBattersHistorical order by LastYearPlayed ASC, ID ASC, YearsPlayed ASC
-*/
-
-if object_id('vwMLBBaseballBattersFullTraining') is NOT NULL
-drop view vwMLBBaseballBattersFullTraining
-go
-create view vwMLBBaseballBattersFullTraining
-as
-
-select 
-		InductedToHallOfFame, OnHallOfFameBallot, FullPlayerName, 
-		YearsPlayed, AB, R, H, Doubles, Triples, HR, RBI, SB, 
-		BattingAverage, SluggingPct, AllStarAppearances,
-		TB, TotalPlayerAwards,LastYearPlayed, ID
-      from dbo.MLBBaseballBatters m
-	  -- 185 is the minimum AB in the history of MLB that someone appeared on the MLB ballot
-	  where m.AB > 185
-	  -- MLB BWAA Rules state you need to have been retired at least 5 years from the game
-	  -- Also include the shoe ins for the Hall Of Fame
-	  AND (m.LastYearPlayed <= 2015 OR m.OnHallOfFameBallot = 'TRUE')
-
-go
-/*
-select * from vwMLBBaseballBattersFullTraining
-*/
-
-if object_id('vwMLBBaseballBattersSplitTraining') is NOT NULL
-drop view vwMLBBaseballBattersSplitTraining
-go
-create view vwMLBBaseballBattersSplitTraining
-as
-
 select
-		InductedToHallOfFame, OnHallOfFameBallot, FullPlayerName, 
-		YearsPlayed, AB, R, H, Doubles, Triples, HR, RBI, SB, 
-		BattingAverage, SluggingPct, AllStarAppearances,
-		TB, TotalPlayerAwards,LastYearPlayed, ID
+case when (InductedToHallOfFame = 1) then 'TRUE' else 'FALSE' end as InductedToHallOfFame,
+case when (OnHallOfFameBallot = 1) then 'TRUE' else 'FALSE' end as OnHallOfFameBallot,
+FullPlayerName, PrimaryPositionPlayer,
+YearsPlayed, AB, R, H, Doubles, Triples, HR,
+ISNULL(RBI, 0 ) as RBI, ISNULL(SB, 0 ) as SB,
+CAST(BattingAverage AS DECIMAL(10,3)) as BattingAverage, CAST(SluggingPct AS DECIMAL(10,3)) as SluggingPct,
+AllStarAppearances, MVPs, TripleCrowns, GoldGloves, MajorLeaguePlayerOfTheYearAwards,
+TB, TotalPlayerAwards, LastYearPlayed,
+playerID as ID
+--, playerID
+into dbo.MLBBaseballBattersHistorical
+from dbo.vwBaseballBattingStats
+go
+
+if object_id('MLBBaseballBatters') is NOT NULL
+drop table MLBBaseballBatters
+go
+set nocount on;
+select
+InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,PrimaryPositionPlayer,YearsPlayed,AB,R,H,Doubles,Triples,HR,RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed, a.ID
+into dbo.MLBBaseballBatters
+from dbo.MLBBaseballBattersHistorical a
+inner join (select ID, max(YearsPlayed) as MaxYearsPlayed from dbo.MLBBaseballBattersHistorical group by ID) b
+on a.ID = b.ID and a.YearsPlayed = b.MaxYearsPlayed
+go
+
+if object_id('MLBBaseballBattersFullTraining') is NOT NULL
+drop table MLBBaseballBattersFullTraining
+go
+set nocount on;
+select
+InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed, a.ID
+into dbo.MLBBaseballBattersFullTraining
+from dbo.MLBBaseballBatters a
+where (a.PrimaryPositionPlayer = 1) AND
+	(a.AB > 400 OR (a.OnHallOfFameBallot = 'TRUE')) AND
+	(LastYearPlayed <= 2016)
+go
+-- select count(*) from MLBBaseballBattersFullTraining
+
+if object_id('MLBBaseballBattersSplitTraining') is NOT NULL
+drop table MLBBaseballBattersSplitTraining
+go
+set nocount on;
+select
+InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed, a.ID
+into dbo.MLBBaseballBattersSplitTraining
 from (
 select top 100 PERCENT
 		b.*,
 		row_number() over (order by OnHallOfFameBallot, newid()) as seqnum,
 		count(*) over () as cnt,
 		count(*) over (partition by OnHallOfFameBallot) as cc_cnt
-      from vwMLBBaseballBattersFullTraining b
+      from dbo.MLBBaseballBattersFullTraining b
 	  order by LastYearPlayed
 	  ) a
 where seqnum % (4) != 0
+-- select count(*) from MLBBaseballBattersSplitTraining
 
+if object_id('MLBBaseballBattersSplitTest') is NOT NULL
+drop table MLBBaseballBattersSplitTest
 go
-/*
-select * from vwMLBBaseballBattersSplitTraining
-*/
-
-if object_id('vwMLBBaseballBattersSplitTest') is NOT NULL
-drop view vwMLBBaseballBattersSplitTest
-go
-create view vwMLBBaseballBattersSplitTest
-as
-
+set nocount on;
 select
-		InductedToHallOfFame, OnHallOfFameBallot, FullPlayerName, 
-		YearsPlayed, AB, R, H, Doubles, Triples, HR, RBI, SB, 
-		BattingAverage, SluggingPct, AllStarAppearances,
-		TB, TotalPlayerAwards,LastYearPlayed, ID
+InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed, a.ID
+into dbo.MLBBaseballBattersSplitTest
 from (
 select top 100 PERCENT
 		b.*,
 		row_number() over (order by OnHallOfFameBallot, newid()) as seqnum,
 		count(*) over () as cnt,
 		count(*) over (partition by OnHallOfFameBallot) as cc_cnt
-      from vwMLBBaseballBattersFullTraining b
+      from dbo.MLBBaseballBattersFullTraining b
 	  order by LastYearPlayed
 	  ) a
 where seqnum % (4) = 0
-
 go
-/*
-select * from vwMLBBaseballBattersSplitTest
-*/
+-- select count(*) from MLBBaseballBattersSplitTest
