@@ -14,7 +14,7 @@ ISNULL(RBI, 0 ) as RBI, ISNULL(SB, 0 ) as SB,
 CAST(BattingAverage AS DECIMAL(10,3)) as BattingAverage, CAST(SluggingPct AS DECIMAL(10,3)) as SluggingPct,
 AllStarAppearances, MVPs, TripleCrowns, GoldGloves, MajorLeaguePlayerOfTheYearAwards,
 TB, TotalPlayerAwards, LastYearPlayed,
-playerID
+playerID as ID
 from dbo.vwBaseballBattingStats
 go
 
@@ -23,9 +23,9 @@ drop table MLBBaseballBattersHistorical
 go
 select
 InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,PrimaryPositionPlayer,YearsPlayed,AB,R,H,Doubles,Triples,HR,
-RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed,playerID as ID
+RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed,ID
 into dbo.MLBBaseballBattersHistorical
-from dbo.vwBaseballBattingStats
+from dbo.vwMLBBaseballBattersHistorical
 go
 
 if object_id('MLBBaseballBatters') is NOT NULL
@@ -34,11 +34,11 @@ go
 set nocount on;
 select
 InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,PrimaryPositionPlayer,YearsPlayed,AB,R,H,Doubles,Triples,HR,
-RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed,playerID as ID
+RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed,a.ID
 into dbo.MLBBaseballBatters
 from dbo.vwMLBBaseballBattersHistorical a
 inner join (select ID, max(YearsPlayed) as MaxYearsPlayed from dbo.MLBBaseballBattersHistorical group by ID) b
-on a.playerID = b.ID and a.YearsPlayed = b.MaxYearsPlayed
+on a.ID = b.ID and a.YearsPlayed = b.MaxYearsPlayed
 go
 -- select count(*) from MLBBaseballBatters
 
