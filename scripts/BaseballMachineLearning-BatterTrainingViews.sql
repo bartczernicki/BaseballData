@@ -1,9 +1,10 @@
 -- Re-Create MLBBaseballBattersHistorical table by dropping and re-inserting to the table
 set nocount on;
 
-if object_id('MLBBaseballBattersHistorical') is NOT NULL
-drop table MLBBaseballBattersHistorical
+if object_id('vwMLBBaseballBattersHistorical') is NOT NULL
+drop view vwMLBBaseballBattersHistorical
 go
+create view vwMLBBaseballBattersHistorical as
 select
 case when (InductedToHallOfFame = 1) then 'TRUE' else 'FALSE' end as InductedToHallOfFame,
 case when (OnHallOfFameBallot = 1) then 'TRUE' else 'FALSE' end as OnHallOfFameBallot,
@@ -13,8 +14,16 @@ ISNULL(RBI, 0 ) as RBI, ISNULL(SB, 0 ) as SB,
 CAST(BattingAverage AS DECIMAL(10,3)) as BattingAverage, CAST(SluggingPct AS DECIMAL(10,3)) as SluggingPct,
 AllStarAppearances, MVPs, TripleCrowns, GoldGloves, MajorLeaguePlayerOfTheYearAwards,
 TB, TotalPlayerAwards, LastYearPlayed,
-playerID as ID
---, playerID
+playerID
+from dbo.vwBaseballBattingStats
+go
+
+if object_id('MLBBaseballBattersHistorical') is NOT NULL
+drop table MLBBaseballBattersHistorical
+go
+select
+InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,PrimaryPositionPlayer,YearsPlayed,AB,R,H,Doubles,Triples,HR,
+RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed,playerID as ID
 into dbo.MLBBaseballBattersHistorical
 from dbo.vwBaseballBattingStats
 go
@@ -24,11 +33,12 @@ drop table MLBBaseballBatters
 go
 set nocount on;
 select
-InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,PrimaryPositionPlayer,YearsPlayed,AB,R,H,Doubles,Triples,HR,RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed, a.ID
+InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,PrimaryPositionPlayer,YearsPlayed,AB,R,H,Doubles,Triples,HR,
+RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed,playerID as ID
 into dbo.MLBBaseballBatters
-from dbo.MLBBaseballBattersHistorical a
+from dbo.vwMLBBaseballBattersHistorical a
 inner join (select ID, max(YearsPlayed) as MaxYearsPlayed from dbo.MLBBaseballBattersHistorical group by ID) b
-on a.ID = b.ID and a.YearsPlayed = b.MaxYearsPlayed
+on a.playerID = b.ID and a.YearsPlayed = b.MaxYearsPlayed
 go
 -- select count(*) from MLBBaseballBatters
 
@@ -37,7 +47,8 @@ drop table MLBBaseballBattersPositionPlayers
 go
 set nocount on;
 select
-InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed, a.ID
+InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,
+RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed,a.ID
 into dbo.MLBBaseballBattersPositionPlayers
 from dbo.MLBBaseballBatters a
 where (a.PrimaryPositionPlayer = 1)
@@ -49,7 +60,8 @@ drop table MLBBaseballBattersFullTraining
 go
 set nocount on;
 select
-InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed, a.ID
+InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,
+RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed,a.ID
 into dbo.MLBBaseballBattersFullTraining
 from dbo.MLBBaseballBatters a
 where (a.PrimaryPositionPlayer = 1) AND
