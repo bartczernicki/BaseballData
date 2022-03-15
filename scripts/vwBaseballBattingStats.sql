@@ -115,27 +115,6 @@ left outer join (
 ) primaryPitcherBatters on (m.playerID = primaryPitcherBatters.playerID)
 go
 
--- Re-Create MLBBaseballBattersHistorical table by dropping and re-inserting to the table
-set nocount on;
-
-if object_id('MLBBaseballBattersHistorical') is NOT NULL
-drop table MLBBaseballBattersHistorical
-go
-select
-case when (InductedToHallOfFame = 1) then 'TRUE' else 'FALSE' end as InductedToHallOfFame,
-case when (OnHallOfFameBallot = 1) then 'TRUE' else 'FALSE' end as OnHallOfFameBallot,
-FullPlayerName, PrimaryPositionPlayer,
-YearsPlayed, AB, R, H, Doubles, Triples, HR,
-ISNULL(RBI, 0 ) as RBI, ISNULL(SB, 0 ) as SB,
-CAST(BattingAverage AS DECIMAL(10,3)) as BattingAverage, CAST(SluggingPct AS DECIMAL(10,3)) as SluggingPct,
-AllStarAppearances, MVPs, TripleCrowns, GoldGloves, MajorLeaguePlayerOfTheYearAwards,
-TB, TotalPlayerAwards, LastYearPlayed,
-playerID as ID
---, playerID
-into dbo.MLBBaseballBattersHistorical
-from dbo.vwBaseballBattingStats
-go
-
 /*
 if object_id('BaseballHOFValidationInBBWAVoting') is NOT NULL
 drop table BaseballHOFValidationInBBWAVoting
