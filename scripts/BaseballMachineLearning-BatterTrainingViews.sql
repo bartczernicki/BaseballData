@@ -30,6 +30,19 @@ from dbo.MLBBaseballBattersHistorical a
 inner join (select ID, max(YearsPlayed) as MaxYearsPlayed from dbo.MLBBaseballBattersHistorical group by ID) b
 on a.ID = b.ID and a.YearsPlayed = b.MaxYearsPlayed
 go
+-- select count(*) from MLBBaseballBatters
+
+if object_id('MLBBaseballBattersPositionPlayers') is NOT NULL
+drop table MLBBaseballBattersPositionPlayers
+go
+set nocount on;
+select
+InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed, a.ID
+into dbo.MLBBaseballBattersPositionPlayers
+from dbo.MLBBaseballBatters a
+where (a.PrimaryPositionPlayer = 1)
+go
+-- select count(*) from MLBBaseballBattersPositionPlayers
 
 if object_id('MLBBaseballBattersFullTraining') is NOT NULL
 drop table MLBBaseballBattersFullTraining
