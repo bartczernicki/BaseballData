@@ -11,16 +11,18 @@ set nocount on;
 
 -- DELETE the HallOFame Batters (Inserted Below)
 delete from dbo.HallOfFame where 
-(yearID >= 2019)
+(yearID >= 2050)
 
 -- REMOVE jonesja05 (error in Lahman)
-delete from dbo.HallOfFame where
-playerID = 'jonesja05'
+--delete from dbo.HallOfFame where
+--playerID = 'jonesja05'
+
 -- Julio Franco is the person on ballot not the other one
 update dbo.HallOfFame
 set playerID = 'francju01'
 where playerID = 'francju02'
 
+/*
 -- INSERT HallOfFame
 -- OnBallots that did not get in
 insert into dbo.HallOfFame
@@ -68,10 +70,12 @@ UNION ALL
 select 'roberbr01', 2020, 'BBWAA', 400, 300, 0, 'N', 'player', NULL
 UNION ALL
 select 'figgich01', 2020, 'BBWAA', 400, 300, 0, 'N', 'player', NULL
+*/
 
 -- INSERT HallOfFame
 -- David Ortiz - 2022
 -- Edgar Martinez, Derek Jeter - 2020; Larry Walker - 2019
+/*
 insert into dbo.HallOfFame
 (playerID, yearID, votedBy, ballots, needed, votes, inducted, category, needed_note)
 select 'ortizda01', 2022, 'BBWAA', 422, 317, 307, 'Y', 'player', NULL
@@ -81,6 +85,7 @@ UNION ALL
 select 'walkela01', 2020, 'BBWAA', 422, 317, 304, 'Y', 'player', NULL
 UNION ALL
 select 'jeterde01', 2020, 'BBWAA', 422, 317, 396, 'Y', 'player', NULL
+*/
 
 -- INSERT HallOfFame
 -- Pete Rose, Rafeal Pameiro, Barry Bonds, Alex Rodriguez, Miguel Cabrera

@@ -158,19 +158,19 @@ order by InductedToHallOfFame DESC, LastYearPlayed ASC
 
 /*
 select
-InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,RBI,SB,BattingAverage,SluggingPct,
-AllStarAppearances,MVPs,TripleCrowns,GoldGloves,MajorLeaguePlayerOfTheYearAwards,TB,TotalPlayerAwards,LastYearPlayed,ID
-from BaseballHOFTrainingFull
+InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,RBI,SB,BattingAverage,
+SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed,ID
+from MLBBaseballBattersFullTraining
 
 select
-InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,RBI,SB,BattingAverage,SluggingPct,
-AllStarAppearances,MVPs,TripleCrowns,GoldGloves,MajorLeaguePlayerOfTheYearAwards,TB,TotalPlayerAwards,LastYearPlayed,ID
-from BaseballHOFTraining
+InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,RBI,SB,BattingAverage,
+SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed,ID
+from MLBBaseballBattersSplitTraining
 
 select
-InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,RBI,SB,BattingAverage,SluggingPct,
-AllStarAppearances,MVPs,TripleCrowns,GoldGloves,MajorLeaguePlayerOfTheYearAwards,TB,TotalPlayerAwards,LastYearPlayed,ID
-from BaseballHOFTest
+InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,RBI,SB,BattingAverage,
+SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed,ID
+from MLBBaseballBattersSplitTest
 */
 
 

@@ -77,7 +77,7 @@ into dbo.MLBBaseballBattersFullTraining
 from dbo.MLBBaseballBatters a
 where (a.PrimaryPositionPlayer = 1) AND
 	(a.AB > 400 OR (a.OnHallOfFameBallot = 'TRUE')) AND
-	(LastYearPlayed <= 2016)
+	(LastYearPlayed <= 2018) -- IMPORTANT to Update
 go
 -- select count(*) from MLBBaseballBattersFullTraining
 
