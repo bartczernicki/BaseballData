@@ -36,7 +36,8 @@ InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Double
 RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed,ID
 into dbo.MLBBaseballBattersHistoricalPositionPlayers
 from dbo.vwMLBBaseballBattersHistorical
-where (PrimaryPositionPlayer = 1)
+where (PrimaryPositionPlayer = 1) and FullPlayerName is NOT NULL;
+-- select count(*) from MLBBaseballBattersHistoricalPositionPlayers
 go
 
 if object_id('MLBBaseballBatters') is NOT NULL
@@ -62,8 +63,9 @@ InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Double
 RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed,a.ID
 into dbo.MLBBaseballBattersPositionPlayers
 from dbo.MLBBaseballBatters a
-where (a.PrimaryPositionPlayer = 1)
+where (a.PrimaryPositionPlayer = 1) AND FullPlayerName is NOT NULL;
 go
+-- This is the table used by the current Baseball 
 -- select count(*) from MLBBaseballBattersPositionPlayers
 
 if object_id('MLBBaseballBattersFullTraining') is NOT NULL

@@ -148,15 +148,15 @@ order by LastYearPlayed asc;
 */
 -- select count(*) as 'MLBBaseballBattersHistorical - Count' from MLBBaseballBattersHistorical
 
-/*
+/* -- Data used for Current Blazor Application
 select
-InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,RBI,SB,BattingAverage,SluggingPct,
-AllStarAppearances,MVPs,TripleCrowns,GoldGloves,MajorLeaguePlayerOfTheYearAwards,TB,TotalPlayerAwards,LastYearPlayed,ID
-from MLBBaseballBattersHistorical
-order by InductedToHallOfFame DESC, LastYearPlayed ASC
+InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,RBI,SB,BattingAverage,
+SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed,ID
+from MLBBaseballBattersPositionPlayers
+order by InductedToHallOfFame DESC, YearsPlayed DESC, LastYearPlayed DESC
 */
 
-/*
+/* -- Data used for training new Machine Learning Models
 select
 InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,RBI,SB,BattingAverage,
 SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed,ID
