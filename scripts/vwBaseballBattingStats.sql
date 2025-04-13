@@ -111,6 +111,7 @@ left outer join (
 	on f1.playerID = f2.playerID
 	where
 	f2.PitchingGames/convert(decimal, (coalesce(f1.NonPitchingGames, 0) + f2.PitchingGames)) > 0.65
+	AND f1.playerID != 'ohtansh01' -- Fix for Ohtani as he pitched and is a DH
 	) as PrimaryPitchers
 ) primaryPitcherBatters on (m.playerID = primaryPitcherBatters.playerID)
 go
