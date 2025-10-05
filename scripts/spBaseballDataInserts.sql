@@ -107,8 +107,6 @@ UNION ALL
 select 'sosasa01', 2050, 'CUSTOM', 422, 422, 422, 'Y', 'player', NULL
 UNION ALL
 select 'ramirma02', 2050, 'CUSTOM', 422, 422, 422, 'Y', 'player', NULL
-UNION ALL
-select 'suzukic01', 2050, 'CUSTOM', 422, 422, 422, 'Y', 'player', NULL
 
 -- 2) AWARDSPLAYERS
 /*
