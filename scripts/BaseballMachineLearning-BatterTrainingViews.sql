@@ -83,41 +83,64 @@ where (a.PrimaryPositionPlayer = 1) AND
 go
 -- select count(*) from MLBBaseballBattersFullTraining
 
-if object_id('MLBBaseballBattersSplitTraining') is NOT NULL
-drop table MLBBaseballBattersSplitTraining
-go
-set nocount on;
-select
-InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed, a.ID
-into dbo.MLBBaseballBattersSplitTraining
-from (
-select top 100 PERCENT
-		b.*,
-		row_number() over (order by OnHallOfFameBallot, newid()) as seqnum,
-		count(*) over () as cnt,
-		count(*) over (partition by OnHallOfFameBallot) as cc_cnt
-      from dbo.MLBBaseballBattersFullTraining b
-	  order by LastYearPlayed
-	  ) a
-where seqnum % (4) != 0
--- select count(*) from MLBBaseballBattersSplitTraining
+-- Create a training set and a test set:
+IF OBJECT_ID('dbo.MLBBaseballBattersSplitTraining','U') IS NOT NULL
+    DROP TABLE dbo.MLBBaseballBattersSplitTraining;
 
-if object_id('MLBBaseballBattersSplitTest') is NOT NULL
-drop table MLBBaseballBattersSplitTest
-go
-set nocount on;
-select
-InductedToHallOfFame,OnHallOfFameBallot,FullPlayerName,YearsPlayed,AB,R,H,Doubles,Triples,HR,RBI,SB,BattingAverage,SluggingPct,AllStarAppearances,TB,TotalPlayerAwards,LastYearPlayed, a.ID
-into dbo.MLBBaseballBattersSplitTest
-from (
-select top 100 PERCENT
-		b.*,
-		row_number() over (order by OnHallOfFameBallot, newid()) as seqnum,
-		count(*) over () as cnt,
-		count(*) over (partition by OnHallOfFameBallot) as cc_cnt
-      from dbo.MLBBaseballBattersFullTraining b
-	  order by LastYearPlayed
-	  ) a
-where seqnum % (4) = 0
-go
--- select count(*) from MLBBaseballBattersSplitTest
+IF OBJECT_ID('dbo.MLBBaseballBattersSplitTest','U') IS NOT NULL
+    DROP TABLE dbo.MLBBaseballBattersSplitTest;
+
+-- Clean up any leftover temp table
+IF OBJECT_ID('tempdb..#split') IS NOT NULL
+    DROP TABLE #split;
+
+SET NOCOUNT ON;
+
+-- One-time randomized, stratified assignment (by OnHallOfFameBallot)
+SELECT
+    b.InductedToHallOfFame, b.OnHallOfFameBallot, b.FullPlayerName, b.YearsPlayed,
+    b.AB, b.R, b.H, b.Doubles, b.Triples, b.HR, b.RBI, b.SB,
+    b.BattingAverage, b.SluggingPct, b.AllStarAppearances, b.TB,
+    b.TotalPlayerAwards, b.LastYearPlayed, b.ID,
+    ROW_NUMBER() OVER (PARTITION BY b.OnHallOfFameBallot ORDER BY NEWID()) AS rn,
+    COUNT(*) OVER (PARTITION BY b.OnHallOfFameBallot) AS class_cnt
+INTO #split
+FROM dbo.MLBBaseballBattersFullTraining AS b;
+
+-- Training: ~75%
+SELECT
+    InductedToHallOfFame, OnHallOfFameBallot, FullPlayerName, YearsPlayed,
+    AB, R, H, Doubles, Triples, HR, RBI, SB, BattingAverage, SluggingPct,
+    AllStarAppearances, TB, TotalPlayerAwards, LastYearPlayed, ID
+INTO dbo.MLBBaseballBattersSplitTraining
+FROM #split
+WHERE rn <= CEILING(0.75 * class_cnt);
+
+-- Test: ~25%
+SELECT
+    InductedToHallOfFame, OnHallOfFameBallot, FullPlayerName, YearsPlayed,
+    AB, R, H, Doubles, Triples, HR, RBI, SB, BattingAverage, SluggingPct,
+    AllStarAppearances, TB, TotalPlayerAwards, LastYearPlayed, ID
+INTO dbo.MLBBaseballBattersSplitTest
+FROM #split
+WHERE rn > CEILING(0.75 * class_cnt);
+
+/*
+-- Optional sanity checks:
+ SELECT 'train' AS which, COUNT(*) FROM dbo.MLBBaseballBattersSplitTraining
+ UNION ALL
+ SELECT 'test'  AS which, COUNT(*) FROM dbo.MLBBaseballBattersSplitTest;
+
+ -- Check to make sure no player is left behind:
+select * from MLBBaseballBattersFullTraining
+where InductedToHallOfFame = 'TRUE'
+AND ID NOT IN
+(
+select ID from MLBBaseballBattersSplitTraining
+where InductedToHallOfFame = 'TRUE'
+UNION ALL
+select ID from MLBBaseballBattersSplitTest
+where InductedToHallOfFame = 'TRUE'
+)
+order by FullPlayerName
+ */
