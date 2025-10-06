@@ -200,8 +200,30 @@ select count(*) from dbo.MLBBaseballBatters
 select count(*) from dbo.BaseballHOFTrainingFull
 select count(*) from dbo.BaseballHOFTraining
 select count(*) from dbo.BaseballHOFTest
+select count(*) from dbo.MLBBaseballBattersSplitTest
+select count(*) from dbo.MLBBaseballBattersSplitTraining
 
 select playerID, * from dbo.BaseballDataFull where playerID IN (
     select playerID from dbo.tempTestVeteransInductedPlayers
 ) order by AllStarAppearances desc
+
+
+select * from
+(
+select * from MLBBaseballBattersSplitTraining
+where InductedToHallOfFame = 'TRUE'
+UNION ALL
+select * from MLBBaseballBattersSplitTest
+where InductedToHallOfFame = 'TRUE'
+) a
+order by H asc
+
+select count(id), count(distinct(id)) from
+(
+select * from MLBBaseballBattersSplitTraining
+where InductedToHallOfFame = 'TRUE'
+UNION ALL
+select * from MLBBaseballBattersSplitTest
+where InductedToHallOfFame = 'TRUE'
+) a
 */
