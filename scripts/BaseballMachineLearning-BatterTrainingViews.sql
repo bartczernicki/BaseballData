@@ -16,6 +16,7 @@ AllStarAppearances, MVPs, TripleCrowns, GoldGloves, MajorLeaguePlayerOfTheYearAw
 TB, TotalPlayerAwards, LastYearPlayed,
 playerID as ID
 from dbo.vwBaseballBattingStats
+where FullPlayerName is NOT NULL
 go
 
 if object_id('MLBBaseballBattersHistorical') is NOT NULL
