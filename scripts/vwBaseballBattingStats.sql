@@ -102,18 +102,22 @@ select playerID, yearID, count(awardID) as MajorLeaguePlayerOfTheYearCount
 from dbo.AwardsPlayers where AwardID = 'TSN Major League Player of the Year'
 group by playerID, yearID) majorLeaguePlayerOfTheYear on (m.playerId = majorLeaguePlayerOfTheYear.playerId AND b.yearID = majorLeaguePlayerOfTheYear.yearID)
 left outer join (
-	select playerID from
-	(
-	select f2.*, f2.PitchingGames/convert(decimal, (coalesce(f1.NonPitchingGames, 0) + f2.PitchingGames)) as PitchingRatio
-	from
-	(select playerID, sum(G) as NonPitchingGames from dbo.Fielding where POS != 'P' group by playerID) as f1 right outer join
-	(select playerID, sum(G) as PitchingGames from dbo.Fielding where POS = 'P' group by playerID) as f2
-	on f1.playerID = f2.playerID
-	where
-	f2.PitchingGames/convert(decimal, (coalesce(f1.NonPitchingGames, 0) + f2.PitchingGames)) > 0.65
-	AND f1.playerID != 'ohtansh01' -- Fix for Ohtani as he pitched and is a DH
-	) as PrimaryPitchers
-) primaryPitcherBatters on (m.playerID = primaryPitcherBatters.playerID)
+    select g.playerID
+    from (
+        select
+            playerID,
+            SUM(CASE WHEN POS = 'P'  THEN G ELSE 0 END) as PitchingGames,
+            SUM(CASE WHEN POS <> 'P' THEN G ELSE 0 END) as NonPitchingGames
+        from dbo.Fielding
+        group by playerID
+    ) g
+    where
+        -- primary pitcher threshold
+        CAST(g.PitchingGames as decimal(18,6))
+        / NULLIF(CAST(g.PitchingGames + g.NonPitchingGames as decimal(18,6)), 0) > 0.65
+        AND g.playerID != 'ohtansh01'  -- one-off include for Ohtani (pitcher/DH)
+) primaryPitcherBatters
+    on (m.playerID = primaryPitcherBatters.playerID)
 go
 
 /*
