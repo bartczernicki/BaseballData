@@ -80,7 +80,7 @@ into dbo.MLBBaseballBattersFullTraining
 from dbo.MLBBaseballBatters a
 where (a.PrimaryPositionPlayer = 1) AND
 	(a.AB > 400 OR (a.OnHallOfFameBallot = 'TRUE')) AND
-	(LastYearPlayed <= 2019) -- IMPORTANT to Update
+	(LastYearPlayed <= 2020) -- IMPORTANT to Update, Players must be retired for at least 5 years to be eligible for the Hall of Fame ballot
 go
 -- select count(*) from MLBBaseballBattersFullTraining
 
